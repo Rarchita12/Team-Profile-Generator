@@ -1,10 +1,11 @@
+//to use classes
 const Manager = require("../lib/Manager");
 const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern.js");
 
-
-function displayManager(teamManager){
-return `<div class="column">
+//display manager card
+function displayManager(teamManager) {
+  return `<div class="column">
 <div class="card">
 <div class="cardTitle1">
   <h3>${teamManager.getName()}</h3>
@@ -16,10 +17,11 @@ return `<div class="column">
   <p>Office Number: ${teamManager.getOfficeNumber()}</p>
   </div>
 </div>
-</div>`
+</div>`;
 }
 
-function displayEngineer(teamEngineer){
+//display engineer card
+function displayEngineer(teamEngineer) {
   return `<div class="column">
 <div class="card">
 <div class="cardTitle1">
@@ -32,11 +34,11 @@ function displayEngineer(teamEngineer){
   <p>GitHub: <a href="https://github.com/${teamEngineer.getGitHub()}"> ${teamEngineer.getGitHub()}</a></p>
   </div>
 </div>
-</div>`
-
+</div>`;
 }
 
-function displayIntern(teamIntern){
+//display intern card
+function displayIntern(teamIntern) {
   return `<div class="column">
   <div class="card">
   <div class="cardTitle1">
@@ -49,35 +51,27 @@ function displayIntern(teamIntern){
     <p>School: ${teamIntern.getSchool()}</p>
     </div>
   </div>
-  </div>`
+  </div>`;
 }
 
-
+//display entire team
 function displayTeam(userInput) {
   var html = `<div class="row"> `;
-for(var i =0; i<userInput.length; i++){
-  
-  
-  if(userInput[i].getRole() === "Manager"){
-   html+= displayManager(userInput[i]);
+  for (var i = 0; i < userInput.length; i++) {
+    if (userInput[i].getRole() === "Manager") {
+      html += displayManager(userInput[i]);
+    } else if (userInput[i].getRole() === "Engineer") {
+      html += displayEngineer(userInput[i]);
+    } else {
+      html += displayIntern(userInput[i]);
+    }
   }
-  else if(userInput[i].getRole() === "Engineer"){
-    html+= displayEngineer(userInput[i]);
-  }
-  else{
-    html+=  displayIntern(userInput[i]);
-  }
-  
-}
-html+= `</div>`;
-return `${html}`;
-
+  html += `</div>`;
+  return `${html}`;
 }
 
+//generate html file
 function generateHTML(userInput) {
-
-  //console.log("length of array: " + length);
- 
   return `
   <!DOCTYPE html>
   <html lang="en">

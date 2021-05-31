@@ -3,7 +3,7 @@
   margin-left: 0;
   margin-right: 0;
 }
-
+/*Header Styles*/
 header {
   background-color: red;
   padding-top: 10px;
@@ -16,7 +16,7 @@ header h1 {
   text-align: center;
   color: white;
 }
-
+/*Card Styles */
 /* Float four columns side by side */
 .column {
   float: left;
@@ -47,26 +47,26 @@ header h1 {
   margin: 10px;
   font-family: -webkit-pictograph;
   width: 250px;
-  }
+}
 
-.cardTitle1{
+.cardTitle1 {
   background-color: blue;
-  color:white;
- padding-top: 5px;
- padding-left: 8px;
- padding-bottom: .1px;
- font-size: 20px;
-
+  color: white;
+  padding-top: 5px;
+  padding-left: 8px;
+  padding-bottom: 0.1px;
+  font-size: 20px;
 }
 
-.cardContent{
-  color:black;
-padding:10px;
+.cardContent {
+  color: black;
+  padding: 10px;
 }
 
-.cardContent p{
+.cardContent p {
   background-color: white;
   border: 1px solid grey;
-  margin:0;
+  margin: 0;
   padding: 5px;
 }
+/*End of Card Styles*/
