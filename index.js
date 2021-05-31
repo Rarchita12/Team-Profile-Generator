@@ -16,21 +16,50 @@ function menuSelection(menuChoice) {
           type: "input",
           name: "name",
           message: "What is the engineer's name?",
+          validate: function(input){
+            const namePass = input.match(/^$/);
+            if(namePass){
+              return "Please enter a name!";
+            }
+            return true;
+          }
         },
         {
           type: "input",
           name: "id",
           message: "What is the engineer's id?",
+          validate: function(input){
+            const idPass = input.match(/^$/);
+            if(idPass){
+              return "Please enter an id!";
+            }
+            return true;
+          }
         },
         {
           type: "input",
           name: "email",
           message: "What is the engineer's email?",
+          validate: function(input){
+            const emailPass = input.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
+          if(emailPass){
+            return true;
+          }
+           return "Please enter a valid email address!";
+          
+          }
         },
         {
           type: "input",
           name: "github",
           message: "What is the engineer's GitHub username?",
+          validate: function(input){
+            const idPass = input.match(/^$/);
+            if(idPass){
+              return "Please enter a Github username!";
+            }
+            return true;
+          }
         },
         {
           type: "list",
@@ -51,7 +80,7 @@ function menuSelection(menuChoice) {
       //  engineer1["type"] = engineer1.getRole();
         userInput.push(engineer1);
         // userInput.push(data);
-        console.log("This is user array: " + JSON.stringify(userInput));
+        //console.log("This is user array: " + JSON.stringify(userInput));
 
         menuSelection(data.menu);
 
@@ -65,21 +94,50 @@ function menuSelection(menuChoice) {
           type: "input",
           name: "name",
           message: "What is the intern's name?",
+          validate: function(input){
+            const namePass = input.match(/^$/);
+            if(namePass){
+              return "Please enter a name!";
+            }
+            return true;
+          }
         },
         {
           type: "input",
           name: "id",
           message: "What is the intern's id?",
+          validate: function(input){
+            const idPass = input.match(/^$/);
+            if(idPass){
+              return "Please enter an id!";
+            }
+            return true;
+          }
         },
         {
           type: "input",
           name: "email",
           message: "What is the intern's email?",
+          validate: function(input){
+            const emailPass = input.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
+          if(emailPass){
+            return true;
+          }
+           return "Please enter a valid email address!";
+          
+          }
         },
         {
           type: "input",
           name: "school",
           message: "Where did the intern go to school?",
+          validate: function(input){
+            const idPass = input.match(/^$/);
+            if(idPass){
+              return "Please enter a school!";
+            }
+            return true;
+          }
         },
         {
           type: "list",
@@ -95,7 +153,7 @@ function menuSelection(menuChoice) {
         //intern1["type"] = intern1.getRole();
         userInput.push(intern1);
         //userInput.push(data);
-        console.log("This is user array: " + JSON.stringify(userInput));
+        
 
         menuSelection(data.menu);
 
@@ -116,21 +174,50 @@ function promptUser() {
         type: "input",
         name: 'name',
         message: "What is the manager's name?",
+        validate: function(input){
+          const namePass = input.match(/^$/);
+          if(namePass){
+            return "Please enter a name!";
+          }
+          return true;
+        }
       },
       {
         type: "input",
         name: 'id',
         message: "What is the manager's id?",
+        validate: function(input){
+          const idPass = input.match(/^$/);
+          if(idPass){
+            return "Please enter an id!";
+          }
+          return true;
+        }
       },
       {
         type: "input",
         name: 'email',
         message: "What is the manager's email?",
+        validate: function(input){
+          const emailPass = input.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/);
+        if(emailPass){
+          return true;
+        }
+         return "Please enter a valid email address!";
+        
+        }
       },
       {
         type: "input",
         name: 'officeNum',
         message: "What is the manager's office number?",
+        validate: function(input){
+          const numberPass = input.match(/^[1-9]\d*$/);
+          if(numberPass){
+            return true;
+          }
+          return "Please enter a number!";
+        }
       },
       {
         type: "list",
@@ -140,16 +227,15 @@ function promptUser() {
       },
     ])
     .then(function (data) {
-      console.log(data);
-
+      
       let manager1 = new Manager(
         data.name,
         data.id,
         data.email,
-        data.officeNum
+        parseInt(data.officeNum)
       );
      // manager1['type'] = manager1.getRole();
-      console.log("Manager1" + JSON.stringify(manager1));
+     
       userInput.push(manager1);
       //console.log("This is user array: " + userInput[0].getName());
       // console.log("This is user array: " + JSON.stringify(userInput));
@@ -168,7 +254,7 @@ function promptUser() {
 // TODO: Create a function to write README file
 function writeToFile(fileName, userInput) {
   //write to README file and call the generateMarkdown function
-  console.log("Inside write: " + userInput);
+  
   // userInput = JSON.stringify(userInput);
   fs.writeFile(
     `` + fileName,

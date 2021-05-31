@@ -56,7 +56,8 @@ function displayIntern(teamIntern){
 function displayTeam(userInput) {
   var html = `<div class="row"> `;
 for(var i =0; i<userInput.length; i++){
-  console.log("Inside display Team: " + userInput[i].getRole());
+  
+  
   if(userInput[i].getRole() === "Manager"){
    html+= displayManager(userInput[i]);
   }
@@ -74,9 +75,9 @@ return `${html}`;
 }
 
 function generateHTML(userInput) {
-  console.log(userInput);
+
   //console.log("length of array: " + length);
-  console.log("The name: " + userInput[0]);
+ 
   return `
   <!DOCTYPE html>
   <html lang="en">

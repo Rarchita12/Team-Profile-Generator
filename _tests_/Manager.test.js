@@ -1,34 +1,40 @@
-const Employee = require("../lib/Employee");
+const Manager = require("../lib/Manager");
 
-test('creates an Employee object', () => {
-  const employee = new Employee('Bob', 123, 'bob@gmail.com');
-
-  expect(employee.name).toBe('Bob');
-  expect(employee.id).toEqual(expect.any(Number));
-  expect(employee.email).toBe('bob@gmail.com');
+test('creates a Manager object', () => {
+  const manager = new Manager('Joe', '111', 'joe@gmail.com', 7894568969);
+  
+  expect(manager.name).toBe('Joe');
+  expect(manager.id).toBe('111');
+  expect(manager.email).toBe('joe@gmail.com');
+  expect(manager.officeNum).toBe(7894568969);
   
 });
 
-test("gets employee's role", () => {
-    const employee = new Employee('Bob', '123', 'bob@gmail.com');
+test("gets manager's role", () => {
+    const manager = new Manager('Joe', '111', 'joe@gmail.com', 7894568969);
   
-    expect(employee.getRole()).toBe('Employee');
+    expect(manager.getRole()).toBe('Manager');
   });
 
-  test("gets employee's name", () => {
-    const employee = new Employee('Bob', '123', 'bob@gmail.com');
+  test("gets manager's name", () => {
+    const manager = new Manager('Joe', '111', 'joe@gmail.com', 7894568969);
   
-    expect(employee.getName()).toBe('Bob');
+    expect(manager.getName()).toBe('Joe');
   });
 
-  test("gets employee's id", () => {
-    const employee = new Employee('Bob', '123', 'bob@gmail.com');
+  test("gets manager's id", () => {
+    const manager = new Manager('Joe', '111', 'joe@gmail.com', 7894568969);
   
-    expect(employee.getId()).toBe('123');
+    expect(manager.getId()).toBe('111');
   });
 
-  test("gets employee's email", () => {
-    const employee = new Employee('Bob', '123', 'bob@gmail.com');
+  test("gets manager's email", () => {
+    const manager = new Manager('Joe', '111', 'joe@gmail.com', 7894568969);
   
-    expect(employee.getEmail()).toBe('bob@gmail.com');
+    expect(manager.getEmail()).toBe('joe@gmail.com');
+  });
+
+  test("gets manager's office number", () =>{
+    const manager = new Manager('Joe', '111', 'joe@gmail.com', 7894568969);
+    expect(manager.getOfficeNumber()).toBe(7894568969);
   });
